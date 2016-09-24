@@ -1,0 +1,41 @@
+{
+  "name": "exzeo-code-challenge-server",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Node server for: https://github.com/exzeo/Full-Stack-Challenge.",
+  "scripts": {
+    "start": "node lib/index.js",
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "coverage": "gulp coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stezu/exzeo-code-challenge-server.git"
+  },
+  "keywords": [],
+  "files": [
+    "lib/",
+    "LICENSE",
+    "README.md"
+  ],
+  "author": "Stephen Zuniga <hello@stephenzuniga.com> (http://stephenzuniga.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stezu/exzeo-code-challenge-server/issues"
+  },
+  "homepage": "https://github.com/stezu/exzeo-code-challenge-server#readme",
+  "devDependencies": {
+    "beeper": "^1.1.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.4.0",
+    "eslint-config-stezu": "^0.0.8",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-if": "^2.0.1",
+    "gulp-istanbul": "^1.1.0",
+    "gulp-mocha": "^3.0.1",
+    "gulp-sequence": "^0.4.5"
+  },
+  "dependencies": {}
+}
