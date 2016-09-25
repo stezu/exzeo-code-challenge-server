@@ -1,0 +1,6 @@
+{
+  "name": "exzeo-code-challenge-server",
+  "server": {
+    "port": 8080
+  }
+}
