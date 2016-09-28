@@ -1,8 +1,8 @@
 const MockReq = require('mock-express-request');
 const MockRes = require('mock-express-response');
 
-MockRes.prototype._getString = function () { // eslint-disable-line no-underscore-dangle
-  const buf = this._readableState.buffer; // eslint-disable-line no-underscore-dangle
+MockRes.prototype._getString = () => { // eslint-disable-line no-underscore-dangle
+  const buf = this._readableState.buffer; // eslint-disable-line no-underscore-dangle, no-invalid-this
 
   if (buf instanceof Array) {
     return Buffer.concat(buf).toString();
@@ -13,8 +13,8 @@ MockRes.prototype._getString = function () { // eslint-disable-line no-underscor
 };
 
 function mockReqPair({ request, response }) {
-  var req = new MockReq(request);
-  var res = new MockRes(response);
+  const req = new MockReq(request);
+  const res = new MockRes(response);
 
   // add circular references
   req.res = res;
@@ -22,7 +22,7 @@ function mockReqPair({ request, response }) {
 
   // fix defaults
   req.headers['transfer-encoding'] = 'chunked';
-  delete req.headers['content-length'];
+  Reflect.deleteProperty(req.headers, 'content-length');
 
   return {
     req,

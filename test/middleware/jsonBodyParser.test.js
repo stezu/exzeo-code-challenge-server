@@ -22,15 +22,15 @@ describe('[JSON Body Parser]', () => {
 
     // validate name and delete it
     expect(err.name).to.equal('HTTPError');
-    delete err.name;
+    Reflect.deleteProperty(err, 'name');
 
     // validate stack and delete it
     expect(err.stack).to.be.a('string');
-    delete err.stack;
+    Reflect.deleteProperty(err, 'stack');
 
     // validate message and delete it
     expect(err.message).to.equal(expected.errorMessage);
-    delete err.message;
+    Reflect.deleteProperty(err, 'message');
 
     expect(err).to.deep.equal(expected);
   }
@@ -50,7 +50,7 @@ describe('[JSON Body Parser]', () => {
     });
     const data = { 'json': 'parsed' };
 
-    delete reqPair.req.headers['content-type'];
+    Reflect.deleteProperty(reqPair.req.headers, 'content-type');
     reqPair.req.end(JSON.stringify(data));
 
     jsonBodyParser(reqPair.req, reqPair.res, (err) => {
